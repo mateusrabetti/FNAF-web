@@ -1,0 +1,347 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: #000;
+    color: var(--color-foreground);
+  }
+}
+
+/* ============ FNAF Landing ============ */
+.fnaf-root {
+  --blood: #b00020;
+  --blood-glow: #ff1f3d;
+  background: radial-gradient(ellipse at top, #1a0a0c 0%, #0a0a0b 60%, #000 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.fnaf-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: rgba(10, 10, 11, 0.55);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 31, 61, 0.18);
+}
+.fnaf-logo img { height: 52px; width: auto; display: block; filter: drop-shadow(0 0 10px rgba(255,31,61,0.35)); }
+.fnaf-nav { display: flex; gap: 2rem; }
+.fnaf-nav a {
+  color: #f5f5f5; text-decoration: none; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem;
+  position: relative; padding: 0.4rem 0.2rem; transition: color .25s;
+}
+.fnaf-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 2px;
+  background: var(--blood-glow); transform: scaleX(0); transform-origin: right; transition: transform .35s ease;
+  box-shadow: 0 0 8px var(--blood-glow);
+}
+.fnaf-nav a:hover { color: var(--blood-glow); text-shadow: 0 0 10px rgba(255,31,61,0.6); }
+.fnaf-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.fnaf-hero { position: relative; min-height: 100vh; display: grid; place-items: center; overflow: hidden; }
+.fnaf-hero-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: contrast(1.1) saturate(0.85);
+  animation: heroPan 22s ease-in-out infinite alternate;
+}
+@keyframes heroPan { from { transform: scale(1.05) translateX(-1%); } to { transform: scale(1.15) translateX(1%); } }
+.fnaf-hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 70%, #000 100%),
+    linear-gradient(180deg, rgba(176,0,32,0.12), transparent 40%);
+}
+.fnaf-scanlines {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(transparent 0 2px, rgba(255,255,255,0.025) 2px 3px);
+  mix-blend-mode: overlay; opacity: 0.6;
+}
+.fnaf-hero-content { position: relative; text-align: center; padding: 0 1.25rem; max-width: 900px; z-index: 2; }
+.fnaf-title {
+  font-family: "Impact", "Oswald", sans-serif;
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 900; line-height: 0.9; letter-spacing: 0.04em;
+  color: #fff; margin: 0;
+  text-shadow:
+    0 0 18px rgba(255, 31, 61, 0.55),
+    0 0 40px rgba(176, 0, 32, 0.45),
+    0 6px 0 #000;
+}
+.fnaf-sub {
+  margin: 1.5rem auto 2rem; max-width: 640px;
+  font-size: clamp(1rem, 1.6vw, 1.25rem); color: #d8d8d8; letter-spacing: 0.02em;
+}
+
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after {
+  content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
+  pointer-events: none;
+}
+.glitch::before { color: #ff1f3d; mix-blend-mode: screen; animation: glitchA 2.6s infinite steps(1); clip-path: inset(0 0 60% 0); }
+.glitch::after  { color: #1ad1ff; mix-blend-mode: screen; animation: glitchB 3.1s infinite steps(1); clip-path: inset(55% 0 0 0); }
+@keyframes glitchA {
+  0%,90%,100% { transform: translate(0,0); }
+  92% { transform: translate(-4px, -2px); }
+  94% { transform: translate(3px, 1px); }
+  96% { transform: translate(-2px, 2px); }
+}
+@keyframes glitchB {
+  0%,88%,100% { transform: translate(0,0); }
+  90% { transform: translate(3px, 2px); }
+  93% { transform: translate(-3px, -1px); }
+  97% { transform: translate(2px, -2px); }
+}
+
+.fnaf-btn {
+  display: inline-block; cursor: pointer; border: 0; padding: 1rem 2.5rem;
+  font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: 1rem; border-radius: 4px; transition: transform .2s ease;
+}
+.fnaf-btn:hover { transform: translateY(-2px); }
+.fnaf-btn-neon {
+  background: linear-gradient(180deg, #1a0608, #0c0203);
+  color: #fff;
+  border: 1px solid rgba(255, 31, 61, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(255, 31, 61, 0.2) inset,
+    0 0 18px rgba(255, 31, 61, 0.5),
+    0 0 40px rgba(176, 0, 32, 0.35);
+  animation: neonPulse 2.2s ease-in-out infinite;
+}
+@keyframes neonPulse {
+  0%,100% { box-shadow: 0 0 0 1px rgba(255,31,61,0.2) inset, 0 0 18px rgba(255,31,61,0.5), 0 0 40px rgba(176,0,32,0.35); }
+  50%     { box-shadow: 0 0 0 1px rgba(255,31,61,0.4) inset, 0 0 28px rgba(255,31,61,0.85), 0 0 70px rgba(176,0,32,0.6); }
+}
+
+.fnaf-section { max-width: 1200px; margin: 0 auto; padding: 6rem 1.5rem; position: relative; z-index: 2; }
+.fnaf-h2 {
+  font-family: "Impact", "Oswald", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  margin: 0 0 1.5rem; color: #fff;
+  text-shadow: 0 0 14px rgba(255,31,61,0.45), 0 3px 0 #000;
+}
+.fnaf-lead { color: #c9c9c9; max-width: 720px; font-size: 1.1rem; line-height: 1.7; }
+
+.fnaf-cards { margin-top: 3rem; display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.fnaf-card {
+  background: linear-gradient(180deg, rgba(31,31,36,0.85), rgba(15,15,17,0.85));
+  border: 1px solid rgba(255,31,61,0.18);
+  border-radius: 10px; padding: 1.75rem;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.fnaf-card:hover { transform: translateY(-6px); border-color: rgba(255,31,61,0.6); box-shadow: 0 12px 40px -10px rgba(255,31,61,0.4); }
+.fnaf-card-ico { font-size: 2.25rem; margin-bottom: 0.75rem; filter: drop-shadow(0 0 8px rgba(255,31,61,0.6)); }
+.fnaf-card h3 { margin: 0; font-size: 1.1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.fnaf-grid { margin-top: 2.5rem; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.fnaf-feat {
+  padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+  border-left: 2px solid var(--blood-glow);
+  background: rgba(22,22,26,0.7);
+  color: #e5e5e5; font-weight: 600; letter-spacing: 0.02em;
+  position: relative; border-radius: 0 8px 8px 0;
+  transition: background .25s, transform .25s;
+}
+.fnaf-feat:hover { background: rgba(40,10,14,0.7); transform: translateX(4px); }
+.fnaf-feat-dot { position: absolute; left: 1rem; top: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--blood-glow); transform: translateY(-50%); box-shadow: 0 0 10px var(--blood-glow); }
+
+.fnaf-download {
+  position: relative; padding: 6rem 1.5rem; text-align: center;
+  background: radial-gradient(ellipse at center, rgba(176,0,32,0.18), transparent 65%), linear-gradient(180deg, #0a0a0b, #120406);
+  border-top: 1px solid rgba(255,31,61,0.15);
+  border-bottom: 1px solid rgba(255,31,61,0.15);
+}
+.fnaf-download-inner { max-width: 720px; margin: 0 auto; }
+.fnaf-download .fnaf-lead { margin: 1rem auto 2rem; }
+
+.fnaf-faq { margin-top: 2rem; display: grid; gap: 0.75rem; max-width: 820px; }
+.fnaf-faq-item { background: rgba(22,22,26,0.8); border: 1px solid rgba(255,31,61,0.15); border-radius: 8px; padding: 1rem 1.25rem; transition: border-color .25s; }
+.fnaf-faq-item[open] { border-color: rgba(255,31,61,0.55); }
+.fnaf-faq-item summary { cursor: pointer; font-weight: 700; letter-spacing: 0.02em; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.fnaf-faq-item summary::-webkit-details-marker { display: none; }
+.fnaf-faq-item summary::after { content: "+"; color: var(--blood-glow); font-size: 1.4rem; }
+.fnaf-faq-item[open] summary::after { content: "−"; }
+.fnaf-faq-item p { margin: 0.75rem 0 0; color: #bdbdbd; line-height: 1.6; }
+
+.fnaf-footer { text-align: center; padding: 3rem 1.5rem; border-top: 1px solid rgba(255,31,61,0.15); color: #888; }
+.fnaf-footer-logo { height: 80px; margin: 0 auto 1rem; display: block; opacity: 0.85; }
+
+[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+
+.fnaf-particles { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.fnaf-particles span {
+  position: absolute; bottom: -20px; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--blood-glow); box-shadow: 0 0 10px var(--blood-glow);
+  opacity: 0.5; animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(-110vh) translateX(40px); opacity: 0; }
+}
+
+.fnaf-jumpscare { position: fixed; inset: 0; z-index: 9999; background: #000; display: grid; place-items: center; animation: shake 0.12s linear infinite; }
+.fnaf-jumpscare img { width: 100vw; height: 100vh; object-fit: cover; animation: jumpZoom 0.4s ease-out forwards, hueShift 0.18s linear infinite; }
+@keyframes jumpZoom {
+  0% { transform: scale(0.3); opacity: 0; filter: blur(20px); }
+  60% { transform: scale(1.25); opacity: 1; filter: blur(0); }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+@keyframes shake {
+  0% { transform: translate(0,0); } 20% { transform: translate(-8px, 6px); } 40% { transform: translate(7px, -5px); }
+  60% { transform: translate(-6px, -7px); } 80% { transform: translate(8px, 5px); } 100% { transform: translate(0,0); }
+}
+@keyframes hueShift {
+  0%,100% { filter: hue-rotate(0deg) contrast(1.1); }
+  50% { filter: hue-rotate(-15deg) contrast(1.3) brightness(1.1); }
+}
+
+@media (max-width: 640px) {
+  .fnaf-header { padding: 0.6rem 1rem; }
+  .fnaf-nav { gap: 1rem; }
+  .fnaf-nav a { font-size: 0.75rem; }
+  .fnaf-logo img { height: 40px; }
+}
